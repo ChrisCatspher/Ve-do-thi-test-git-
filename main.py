@@ -4,6 +4,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 #Seaborn
 import seaborn as sns
+#Plotly
+import plotly.express as px
 
 data = {
     "Thang": ["Jan", "Feb", "Mar", "Apr"],
@@ -31,8 +33,10 @@ while True:
         5. Show pie chart
         6. Scatter plot
         7. Du lieu tap trung o dau (tuoi)
+        8. Boxplot
+        9. Plotly
         0. Shutdown
-        Version 1.0
+        Version 1.1
     """)
 
     choice = int(input("Input your choice: "))
@@ -79,6 +83,20 @@ while True:
     elif choice == 7:
         sns.histplot(age["Tuoi"])
         plt.show()
+
+    elif choice == 8:
+        sns.boxplot(["DoanhThu"])
+        plt.show()
+
+    elif choice == 9:
+        fig = px.line(
+            df,
+            x="Thang",
+            y="DoanhThu",
+            title="Doanh thu theo tháng"
+        )
+
+        fig.show()
 
     elif choice == 0:
         print()
